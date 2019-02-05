@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form_check</title>
+</head>
+<body>
+  <form action="http://basic.ivory.ne.jp/?" method="get" name="search1" id="searchfrm">
+  <table>
+  <tr>
+    <script type="text/javascript" language="javascript">
+      function onButtonClick() {
+        check1 = document.search1.Checkbox1.checked;
+        check2 = document.search1.Checkbox2.checked;
+
+        target = document.getElementById("output");
+
+        if (check1 == true && check2 == false) {
+          target.innerHTML = '<input type="hidden" name="Item" value="100">';
+        } else if (check2 == true && check1 == false) {
+          target.innerHTML = '<input type="hidden" name="Item" value="200">';
+        } else if (check1 == true && check2 == true) {
+          target.innerHTML = '<input type="hidden" name="Item" value="100-200">';
+        }
+      }
+    </script>
+    <td>
+      <label><input id="Checkbox1" type="checkbox" onchange="onButtonClick();" autocomplete="off" />&nbsp;100</label>&nbsp;&nbsp;
+      <label><input id="Checkbox2" type="checkbox" onchange="onButtonClick();" autocomplete="off" />&nbsp;200</label>
+
+      <div id="output"></div>
+
+    </td>
+  </tr>
+  </table>
+  <div id="sendbtn" class="submit"><input type="submit" value="検索"></div>
+  </form>
+</body>
+</html>
